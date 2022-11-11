@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Scheduler</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+
+    <nav>
+        <h3><a href="">Home</a></h3>
+        <ul class="nav-items">
+            <li><a href="">Add Event</a></li>
+            <li><a href="/admin/">Admin</a></li>
+            
+        </ul>
+    </nav>
+
+    {% if messages %} 
+        {% for message in message %} 
+            {{ message }}
+        {% endfor %}
+    {% endif %}
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>
