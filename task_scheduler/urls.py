@@ -15,8 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth import views as auth_views
+from taskscheduler import views as taskscheduler_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('taskscheduler.urls')),   
+    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+    path('logout/', taskscheduler_views.logout_view, name='logout'),
+    path('sign_up/', taskscheduler_views.sign_up, name='sign_up'),
+    path('demo/', taskscheduler_views.demo, name='demo'),
 ]

@@ -4,6 +4,9 @@ from django.http import HttpResponse
 from django.template import loader
 from .models import Event
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout, login
+from django.contrib.auth.models import User
+from .forms import RegisterForm, PasswordForm
 
 @login_required(login_url='/login')
 def index(request):
@@ -126,3 +129,37 @@ def update_event(request, id):
     event.save()
     return index(request)
 
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')
+
+
+def sign_up(request):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return index(request)
+    else:
+        form = RegisterForm()
+    content = {
+        'form': form,
+    }
+    return render(request, 'sign_up.html', content)
+
+
+def demo(request):
+    user = User.objects.get(username="testUser1")
+    login(request, user)
+    return index(request)
+
+
+def profile(request):
+    if request.method == 'POST':
+        user = request.user
+        content = {
+            'username': user.username,
+            'email': user.email
+        }
+        return render(request, 'profile.html', content)

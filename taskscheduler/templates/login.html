@@ -28,7 +28,7 @@
         <h2>Login</h2>
         <form method="POST">
             {% csrf_token %}
-            <table>
+            <table class="login_table">
                 <tr>
                     <td>{{ form.username.label_tag }}</td>
                     <td>{{ form.username }}</td>
