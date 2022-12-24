@@ -3,6 +3,11 @@
 
     <div class="main">
         <h1>{{ date }}</h1>
+        <ul>
+            {% for event in events %}
+                <li><a href='/event_details/{{ event.id }}'>{{ event }}</a></li>
+            {% endfor %}
+        </ul>
     </div>
 
 {% endblock content %}

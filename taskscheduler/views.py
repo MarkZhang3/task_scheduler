@@ -75,24 +75,31 @@ def get_date(request, year, month, day):
         'date': date,
         'events': events,
     }
-    return render(request, 'index.html', content)
+    return render(request, 'day.html', content)
 
 
 def add_event(request):
-    sd = list(map(int, request.POST.get('start_date').split('-')))
-    st = list(map(int, request.POST.get('start_time').split(':')))
-    ed = list(map(int, request.POST.get('end_date').split('-')))
-    et = list(map(int, request.POST.get('end_time').split(':')))
-    e = Event.objects.create(
-        user = request.user,
-        text = request.POST.get('event_text'),
-        start_date = datetime.date(sd[0], sd[1], sd[2]),
-        start_time = datetime.time(st[0], st[1]),
-        end_date = datetime.date(ed[0], ed[1], ed[2]),
-        end_time = datetime.time(et[0], et[1]),
-        completed = False
-    )
-    return index(request)
+    if request.method == 'POST':
+        sd = list(map(int, request.POST.get('start_date').split('-')))
+        st = list(map(int, request.POST.get('start_time').split(':')))
+        ed = list(map(int, request.POST.get('end_date').split('-')))
+        et = list(map(int, request.POST.get('end_time').split(':')))
+        e = Event.objects.create(
+            user=request.user.username,
+            text = request.POST.get('event_text'),
+            start_date = datetime.date(sd[0], sd[1], sd[2]),
+            start_time = datetime.time(st[0], st[1]),
+            end_date = datetime.date(ed[0], ed[1], ed[2]),
+            end_time = datetime.time(et[0], et[1]),
+            completed = False
+        )
+        return index(request)
+    else:
+        temp = str(datetime.date.today().strftime('%Y-%m-%d'))
+        content = {
+            'cur_date': temp,
+        }
+        return render(request, 'add_event.html', content)
 
 
 def delete_event(request, id):
@@ -101,12 +108,12 @@ def delete_event(request, id):
     return index(request)
 
 
-def details(request, id):
+def event_details(request, id):
     event = Event.objects.get(id=id)
     content = {
         'event': event,
     }
-    return render(request, 'details.html', content)
+    return render(request, 'event_details.html', content)
 
 
 def update_event(request, id):
@@ -129,6 +136,13 @@ def update_event(request, id):
     event.save()
     return index(request)
 
+
+def edit_event(request, id):
+    event = Event.objects.get(id=id)
+    content = {
+        'event': event,
+    }
+    return render(request, 'edit_event.html', content)
 
 def logout_view(request):
     logout(request)

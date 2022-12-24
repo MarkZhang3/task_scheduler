@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="main">
+        <h1>Event Details</h1>
+        <form action="/task_scheduler/update_event/{{ event.id }}" method="post">
+            {% csrf_token %}
+            <label>Event Text: </label>
+            <input class="edit_line" name="event_text" placeholder="{{ event.text }}">
+            <br><br>
+            <label for="start_date">Start Date:</label>
+            <input class="edit_line" name="start_date" placeholder="{{ event.start_date }}">
+            <br><br>
+            <label for="start_time">Start Time: </label>
+            <input class="edit_line" name="start_time" placeholder="{{ event.start_time }}">
+            <br><br>
+            <label for="end_date">End Date:</label>
+            <input class="edit_line" name="end_date" placeholder="{{ event.end_date }}">
+            <br><br>
+            <label for="end_time">End Time:</label>
+            <input class="edit_line" name="end_time" placeholder="{{ event.end_time }}">
+            <br><br>
+            {% if event.completed %}
+                <a href="/update_completed/{{ event.id }}">mark as not completed</a>
+            {% else %} 
+                <a href="/update_completed/{{ event.id }}">mark as completed</a>
+            {% endif %} 
+            <br><br>
+            <input type="submit" value="Update">
+        </form>
+    </div>
+
+{% endblock content %}
