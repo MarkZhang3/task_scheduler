@@ -1,24 +1,31 @@
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 10px;
-    box-shadow: 0px 3px 10px gray;
-    background-color: white;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+  background-color: #333;
+}
+
 .nav-items {
   list-style-type: none;
   display: flex;
 }
 
 .nav-items > li {
-    padding: 10px;
+  padding: 10px;
 }
 
 .nav-items > li:hover {
-  background-color: gray;
+  background-color: #111;
+}
+
+/* li a:hover:not(.active) {
+  background-color: #111;
+} */
+
+li .active {
+  background-color: #DDFFF7;
 }
 
 .main {
@@ -101,8 +108,12 @@ th {
 }
 
 .login_table {
-    box-shadow: 0px 0px 5px gray;
-    padding: 15px;
-    width: 100%;
-    background-color: white;
+  box-shadow: 0px 0px 5px gray;
+  padding: 15px;
+  width: 100%;
+  background-color: white;
+}
+
+td {
+  
 }

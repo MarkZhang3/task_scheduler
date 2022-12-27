@@ -67,6 +67,27 @@ def get_next(request, yy, mm):
     return render(request, 'index.html', content)
 
 
+def index_event_list(request, year, month, day):
+    date = datetime.date(year, month, day)
+    all_events = Event.objects.all()
+    dates = [i.split() for i in calendar.month(year, month).split('\n')]
+    month_string = ' '.join(dates.pop(0))
+    dates.pop(0)
+    dates[0] = [' '] * (7 - len(dates[0])) + dates[0]
+    events = [event for event in all_events if (event.start_date <= date <= event.end_date)]
+    content = {
+        'year': year,
+        'month_numeric': month,
+        "month": month_string, 
+        "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        "dates": dates,
+        'date': date,
+        'events': events,
+        'day': date.day,
+    }
+    return render(request, 'index.html', content)
+
+
 def get_date(request, year, month, day):
     date = datetime.date(year, month, day)
     all_events = Event.objects.all()
@@ -170,10 +191,14 @@ def demo(request):
 
 
 def profile(request):
-    if request.method == 'POST':
-        user = request.user
-        content = {
-            'username': user.username,
-            'email': user.email
-        }
-        return render(request, 'profile.html', content)
+    user = request.user
+    content = {
+        'username': user.username,
+        'email': user.email
+    }
+    return render(request, 'profile.html', content)
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')
