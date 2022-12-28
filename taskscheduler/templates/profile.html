@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-<p>{{ user.username }}</p>
-
+<img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png" alt="profile">
+<h4>Hello, {{ user.username }}</h4>
+<p>Your Information</p>
+<p>Email: {{ user.email }}</p>
+{% if app_pass %} 
+    <p>App Password: {{ app_pass }}</p>
+{% else %} 
+    <p>You have not yet added an app password. Add one <a href="/app_password/">here</a></p>
+{% endif %}
 <a href="/logout">logout</a>
 {% endblock content %}

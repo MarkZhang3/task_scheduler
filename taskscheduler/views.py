@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 import calendar, datetime
 from django.http import HttpResponse
 from django.template import loader
-from .models import Event
+from .models import Event, AppPassword
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout, login
 from django.contrib.auth.models import User
@@ -165,6 +165,7 @@ def edit_event(request, id):
     }
     return render(request, 'edit_event.html', content)
 
+
 def logout_view(request):
     logout(request)
     return redirect('login')
@@ -192,9 +193,16 @@ def demo(request):
 
 def profile(request):
     user = request.user
+    password = ''
+    for object in AppPassword.objects.all():
+        if object.user is user:
+            password = object.app_password
+            break 
+    
     content = {
         'username': user.username,
-        'email': user.email
+        'email': user.email,
+        'app_pass': password,
     }
     return render(request, 'profile.html', content)
 
@@ -202,3 +210,15 @@ def profile(request):
 def logout_view(request):
     logout(request)
     return redirect('login')
+
+
+def app_password(request):
+    return render(request, 'app_password.html')
+
+
+def add_app_password(request):
+    user = request.user 
+    password = request.POST['app_password']
+    pw = AppPassword.objects.create(user=user, app_password=password)
+    pw.save()
+    return redirect('index')

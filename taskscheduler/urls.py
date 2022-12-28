@@ -12,4 +12,12 @@ urlpatterns = [
     path('index_event_list/<int:year>/<int:month>/<int:day>', views.index_event_list, name='index_event_list'),
     path('profile/', views.profile, name='profile'),
     path('logout/', views.logout_view, name='logout'),
+    path('app_password/', views.app_password, name='app_password'),
+    path('add_app_password', views.add_app_password, name='add_app_password'),
 ]
+
+try: 
+    from . import scheduler
+    scheduler.start()
+except Exception as e:
+    print(str(e))
