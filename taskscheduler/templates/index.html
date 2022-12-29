@@ -4,41 +4,43 @@
 <div class="main">
     <br><br>
     <div class="row">
-        <table class='calendar' align="center">
-            <h2 align="center">{{ month }}<a href="/get_previous/{{ year }}/{{ month_numeric }}">&lt</a>
-                <a href="/get_next/{{ year }}/{{ month_numeric }}">&gt</a></h2>
-            <colgroup>
-                <col span="7" style="align-items: center;">
-            </colgroup>
-            <thead>
-                {% for day in days %} 
-                    <th style="font-size: 20px;
-                    padding: 5px;
-                    margin: 5px 7px 5px 7px;">{{ day }}</th>
-                {% endfor %}
-            </thead>
-            <tbody>
-                {% for row in dates %}
-                    <tr>
-                        {% for date in row %}
-                            <td align="center"><a href="/index_event_list/{{ year }}/{{ month_numeric }}/{{ date }}">{{ date }}</a></td>
-                        {% endfor %}
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        
+        <div class="item1">
+            <table class='calendar' align="center">
+                <h2 align="center">{{ month }} &emsp; <a href="/get_previous/{{ year }}/{{ month_numeric }}">&lt</a>
+                    <a href="/get_next/{{ year }}/{{ month_numeric }}">&gt</a></h2>
+                <colgroup>
+                    <col span="7" style="align-items: center;">
+                </colgroup>
+                <thead>
+                    {% for day in days %} 
+                        <th style="font-size: 20px;
+                        padding: 5px;
+                        margin: 5px 7px 5px 7px;">{{ day }}</th>
+                    {% endfor %}
+                </thead>
+                <tbody>
+                    {% for row in dates %}
+                        <tr>
+                            {% for date in row %}
+                                <td align="center"><a href="/index_event_list/{{ year }}/{{ month_numeric }}/{{ date }}" style="color: black">{{ date }}</a></td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% if date %}
         <div class="eventslist">
             <h1>{{ date }}</h1>
-            <ul>
+            <hr>
+            <ul class="ulevent">
                 {% for event in events %}
-                    <li><a href='/event_details/{{ event.id }}'>{{ event }}</a></li>
+                    <li class="lievent"><a href='/event_details/{{ event.id }}'>{{ event }}</a></li>
                 {% endfor %}
             </ul>
-            {% if date %} 
-                <a href="/get_date/{{ year }}/{{ month_numeric }}/{{ day }}">details</a>
-            {% endif %}
+            <a href="/get_date/{{ year }}/{{ month_numeric }}/{{ day }}">details</a>    
         </div>
+        {% endif %}
     </div>
     
 
