@@ -6,15 +6,15 @@
     <div class="row">
         <div class="item1">
             <table class='calendar' align="center">
-                <h2 align="center">{{ month }} &emsp; <a href="/get_previous/{{ year }}/{{ month_numeric }}">&lt</a>
-                    <a href="/get_next/{{ year }}/{{ month_numeric }}">&gt</a></h2>
+                <h1 align="center">{{ month }} &emsp; <a href="/get_previous/{{ year }}/{{ month_numeric }}">&lt</a>
+                    <a href="/get_next/{{ year }}/{{ month_numeric }}">&gt</a></h1>
                 <colgroup>
                     <col span="7" style="align-items: center;">
                 </colgroup>
                 <thead>
                     {% for day in days %} 
                         <th style="font-size: 20px;
-                        padding: 5px;
+                        padding: 8px;
                         margin: 5px 7px 5px 7px;">{{ day }}</th>
                     {% endfor %}
                 </thead>
@@ -22,7 +22,7 @@
                     {% for row in dates %}
                         <tr>
                             {% for date in row %}
-                                <td align="center"><a href="/index_event_list/{{ year }}/{{ month_numeric }}/{{ date }}" style="color: black">{{ date }}</a></td>
+                                <td align="center" style="padding: 8px;"><a href="/index_event_list/{{ year }}/{{ month_numeric }}/{{ date }}" style="color: black; font-size: 18px;">{{ date }}</a></td>
                             {% endfor %}
                         </tr>
                     {% endfor %}
@@ -31,7 +31,7 @@
         </div>
         {% if date %}
         <div class="eventslist">
-            <h1>{{ date }}</h1>
+            <h1 style="padding-top: 20px;">{{ date }}</h1>
             <hr>
             <ul class="ulevent">
                 {% for event in events %}

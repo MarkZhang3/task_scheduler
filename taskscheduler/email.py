@@ -1,4 +1,4 @@
-from .models import User, Table, Event 
+from .models import Event 
 from datetime import datetime
 import smtplib, ssl 
 
@@ -25,11 +25,10 @@ def job():
     # search for user and matching app password 
     # send email 
     dateToday = datetime.today().strftime('%Y-%m-%d')
-    tables = Table.objects.all()
-    for table in tables:
-        user = User.objects.get(username=str(table.user))
-        for event in table.event_set.all():
-            if str(event.start_date) == str(dateToday):
-                send(user, event.text)
+    events = Event.objects.all()
+    for event in events:
+        user = event.user 
+        if event.start_date <= dateToday <= event.end_date:
+            send(user, event.text)
 
 

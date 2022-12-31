@@ -43,7 +43,28 @@ li .active {
 }
 
 .calendar {
-  background-color: #DDFFF7;
+  
+}
+
+input[type=submit] {
+  padding: 12px 20px;
+  background-color: #EF476F;
+  border: none;
+  cursor: pointer;
+}
+
+input.edit-line {
+  border-color: #000000; border-left: none;
+  border-right: none;
+  border-top: none;
+  background-color: transparent;
+}
+
+input.input_box {
+  border-color: #000000; border-left: none;
+  border-right: none;
+  border-top: none;
+  background-color: transparent;
 }
 
 body {
