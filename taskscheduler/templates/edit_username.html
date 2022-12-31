@@ -1,0 +1,15 @@
+{% extends 'base.html' %} 
+{% block content %} 
+
+<div class="main">
+    <h1>Change Username</h1>
+    <form action="/edit_username/" method="post">
+        {% csrf_token %}
+        <label>New Username: </label>
+        <input type="edit_line" name="new_username">
+        <input type="submit" value="Update">
+        <p>Note: Username must be 150 characters or fewer. Letters, digits and @/./+/-/_ only.</p>
+    </form>
+</div>
+
+{% endblock content %}

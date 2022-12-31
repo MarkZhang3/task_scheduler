@@ -1,0 +1,14 @@
+{% extends 'base.html' %} 
+{% block content %} 
+
+<div class="main">
+    <h1>Change Email</h1>
+    <form action="/edit_email/" method="post">
+        {% csrf_token %}
+        <label>New Email: </label>
+        <input type="edit_line" name="new_email">
+        <input type="submit" value="Update">
+    </form>
+</div>
+
+{% endblock content %}

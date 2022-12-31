@@ -15,6 +15,9 @@ urlpatterns = [
     path('logout/', views.logout_view, name='logout'),
     path('app_password/', views.app_password, name='app_password'),
     path('add_app_password', views.add_app_password, name='add_app_password'),
+    path('edit_username/', views.edit_username, name='edit_username'),
+    path('edit_password/', views.edit_password, name='edit_password'),
+    path('edit_email/', views.edit_email, name='edit_email'),
 ]
 
 try: 

@@ -222,3 +222,36 @@ def add_app_password(request):
     pw = AppPassword.objects.create(user=user, app_password=password)
     pw.save()
     return redirect('index')
+
+
+def edit_username(request):
+    if request.method == 'POST':
+        user = request.user 
+        new_username = request.POST['new_username']
+        user.username = new_username 
+        user.save()
+        return redirect('profile')
+    else:
+        return render('edit_username.html')
+
+
+def edit_password(request):
+    if request.method == 'POST':
+        user = request.user 
+        new_password = request.POST['new_password']
+        user.set_password(new_password)
+        user.save()
+        return redirect('profile')
+    else:
+        return render('edit_password.html')
+
+
+def edit_email(request):
+    if request.method == 'POST':
+        user = request.user 
+        new_email = request.POST['new_email']
+        user.email = new_email 
+        user.save()
+        return redirect('profile')
+    else:
+        return render('edit_email.html')
