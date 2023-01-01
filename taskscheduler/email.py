@@ -24,7 +24,7 @@ def job():
     # get events from table 
     # search for user and matching app password 
     # send email 
-    dateToday = datetime.today().strftime('%Y-%m-%d')
+    dateToday = datetime.today()
     events = Event.objects.all()
     for event in events:
         user = event.user 
