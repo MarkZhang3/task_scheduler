@@ -18,6 +18,7 @@ urlpatterns = [
     path('edit_username/', views.edit_username, name='edit_username'),
     path('edit_password/', views.edit_password, name='edit_password'),
     path('edit_email/', views.edit_email, name='edit_email'),
+    path('demo/', views.demo, name='demo'),
 ]
 
 try: 

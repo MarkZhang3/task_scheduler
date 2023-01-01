@@ -185,12 +185,6 @@ def sign_up(request):
     return render(request, 'sign_up.html', content)
 
 
-def demo(request):
-    user = User.objects.get(username="testUser1")
-    login(request, user)
-    return index(request)
-
-
 def profile(request):
     user = request.user
     password = ''
@@ -255,3 +249,9 @@ def edit_email(request):
         return redirect('profile')
     else:
         return render('edit_email.html')
+
+
+def demo(request):
+    user = User.objects.get(username="testUser1")
+    login(request, user)
+    return index(request)
