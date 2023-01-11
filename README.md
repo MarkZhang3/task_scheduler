@@ -1,6 +1,6 @@
 # Task Scheduler
 
-You can see it live [here](/MarkZhang.pythonanywhere.com)  
+You can see it live [here]([/MarkZhang.pythonanywhere.com](http://markzhang.pythonanywhere.com/login/?next=/))  
 
 ## Motivation
 I have a hard time keeping track of what I need to do day to day. Often I’ll think of things to do for my day in the morning but then forget everything I planned out by the afternoon. I wanted to make a simple website where I can keep track of tasks I want to get done and also send myself email reminders to actually complete the tasks. 
