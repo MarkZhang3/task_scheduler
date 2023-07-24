@@ -58,7 +58,6 @@ Task Scheduler is a feature-rich web application built using Python Django that 
 
 
 ## Next steps
-- Add feature to see which day is clicked on inside the calendar 
 - Display events inside the calendar 
 - Better css formatting 
 - Toggling whether app sends email
