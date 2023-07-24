@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png" alt="profile">
+<h4>Hello, {{ user.username }}</h4>
+<p>Your Information </p>
+<p>Username: {{ user.username }} <a href="/edit_username/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Simpleicons_Business_pencil-striped-symbol-for-interface-edit-buttons.svg/2048px-Simpleicons_Business_pencil-striped-symbol-for-interface-edit-buttons.svg.png" width="15px" height="15px"></a></p>
+<p>Email: {{ user.email }} <a href="/edit_email/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Simpleicons_Business_pencil-striped-symbol-for-interface-edit-buttons.svg/2048px-Simpleicons_Business_pencil-striped-symbol-for-interface-edit-buttons.svg.png" width="15px" height="15px"></a></p>
+<p>Password: ### <a href="/edit_password/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Simpleicons_Business_pencil-striped-symbol-for-interface-edit-buttons.svg/2048px-Simpleicons_Business_pencil-striped-symbol-for-interface-edit-buttons.svg.png" width="15px" height="15px"></a></p>
+{% if app_pass %} 
+    <p>App Password: {{ app_pass }}</p>
+{% else %} 
+    <p>You have not yet added an app password. Add one <a href="/app_password/">here</a></p>
+{% endif %}
+<a href="/logout">logout</a>
+{% endblock content %}

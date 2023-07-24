@@ -1,0 +1,285 @@
+a:visited {
+  text-decoration: none;
+}
+
+
+input[type=submit] {
+  padding: 12px 20px;
+  background-color: #EF476F;
+  border: none;
+  cursor: pointer;
+}
+
+input.edit-line {
+  border-color: #000000; border-left: none;
+  border-right: none;
+  border-top: none;
+  background-color: transparent;
+}
+
+input.input_box {
+  border: none;
+  border-bottom: 1px solid #ddd;
+  background-color: transparent;
+  padding: 5px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+  width: 200px;
+}
+
+
+.input_box:focus {
+  outline: none;
+}
+
+body {
+  background-color: rgb(234, 234, 234);
+  font-family: "Roboto";
+  margin: auto;
+}
+
+.dropdown_content {
+  display: none;
+  box-shadow: 0px 8px 16px 0px darkslategrey;
+}
+
+.dropdown:hover .dropdown_content{
+  display: block;
+}
+
+a {
+  text-decoration: none;
+
+}
+
+a:hover {
+  background-color: gray;
+}
+
+
+/* .event_info {
+  padding: 5px;
+} */
+
+
+.round_box {
+  border-radius: 7px;
+  background: #62cd5c;
+  padding: 10px;
+}
+
+.menu-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.menu-icon:hover {
+  background-color: gray;
+}
+
+.menu-icon > .line {
+  background-color: #292929;
+  height: 3px;
+  display: block;
+}
+
+.menu-icon > .line + .line {
+  margin-top: 4px;
+}
+
+
+.show {
+  visibility: visible;
+}
+
+
+th {
+  font-size: 20px;
+  padding: 5px;
+  margin: 5px 7px 5px 7px;
+}
+
+.login_table {
+  box-shadow: 0px 0px 5px gray;
+  padding: 15px;
+  width: 100%;
+  background-color: white;
+}
+
+
+/* Event details styles */
+.event_info {
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.event_info label {
+  display: block;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.event_info a {
+  color: #EF476F;
+  text-decoration: none;
+}
+
+.event_info a:hover {
+  text-decoration: underline;
+}
+
+/* Rounded box styles */
+.round_box {
+  border-radius: 7px;
+  background: #62cd5c;
+  padding: 10px;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Footer styles  */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px; /* Adjusted padding */
+  background-color: #333;
+}
+
+.nav-items {
+  list-style-type: none;
+  display: flex;
+}
+
+.nav-items > li {
+  padding: 10px;
+  margin: 0 5px;
+}
+
+.nav-items > li:hover {
+  background-color: #111;
+}
+
+/* Active link style */
+li.active a {
+  background-color: #DDFFF7;
+  color: #000; /* Set a contrasting color */
+}
+
+/* nav */
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+}
+
+nav a:hover {
+  background-color: #444;
+}
+
+h3 {
+  margin: 0;
+}
+
+
+
+/* Calendar table styles */
+.calendar {
+    width: 90%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.calendar th {
+  font-size: 20px;
+  padding: 10px;
+  margin: 5px;
+  background-color: #f2f2f2;
+  width: 40px; /* Adjust the cell width for a square shape */
+  height: 40px; /* Adjust the cell height for a square shape */
+}
+
+.calendar td {
+  padding: 10px;
+  text-align: center;
+  width: 40px; /* Adjust the cell width for a square shape */
+  height: 40px; /* Adjust the cell height for a square shape */
+}
+
+.calendar a {
+  color: black;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.calendar a:hover {
+  background-color: #e0e0e0;
+}
+
+
+.main {
+  width: 80%;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  min-height: 650px;
+  height: auto;
+}
+
+.item1 {
+  float: left;
+  width: 50%;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.main h1 {
+  font-family: 'Roboto', sans-serif;
+}
+
+
+/* Rounded box styles */
+.round_box {
+  border-radius: 7px;
+  background: #62cd5c;
+  padding: 10px;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Footer styles (adjust as needed) */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+}
+
+.eventslist {
+    float:left;
+    padding-left: 30px;
+}
+
+.form_wrapper {
+    margin: auto;
+    width: 80%;
+  padding: 20px;
+  border-radius: 10px;
+}

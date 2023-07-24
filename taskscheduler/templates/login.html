@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Scheduler</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav>
+        <h3 style="color: white"><a href="">Task Scheduler</a></h3>
+        <ul class="nav-items">
+            <li><a href="/admin/" style="color: white">Admin</a></li>
+        </ul>
+    </nav>
+
+    <div class="main">
+
+        {% if form.errors %}
+            <p>Your username and password didn't match. Please try again.</p>
+        {% endif %}
+
+        <br><br>
+        <h2>Login</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <table class="login_table">
+                <tr>
+                    <td>{{ form.username.label_tag }}</td>
+                    <td>{{ form.username }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.password.label_tag }}</td>
+                    <td>{{ form.password }}</td>
+                </tr>
+            </table>
+
+            <br><br> 
+
+            <button type="submit">Login</button>
+            <p>Don't have an account? Create one <a href="{% url 'sign_up' %}">here</a> or try a <a href="{% url 'demo' %}">demo</a></p>
+        </form>
+    </div>
+
+
+</body>
+</html>

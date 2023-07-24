@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title >Task Scheduler</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav>
+        <h3><a href="" style="color: white">Task Scheduler</a></h3>
+        <ul class="nav-items">
+            <li><a href="{% url 'login' %}" style="color: white">Login</a></li>
+        </ul>
+    </nav>
+
+    <div class="main">
+        <form method="POST">
+            {% csrf_token %}
+
+            <br><br>
+            <h2>Sign Up</h2>
+            <table class="login_table">
+                <tr>
+                    <td>{{ form.username.label_tag }}  {{ form.username }}</td>
+                    <td></td>
+                </tr>
+                <tr><td>Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</td></tr>
+                <tr>
+                    <td>Email:   {{ form.email }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.password1.label_tag }}  {{ form.password1 }}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <ul>
+                            <li>Your password can’t be too similar to your other personal information.</li>
+                            <li>Your password must contain at least 8 characters.</li>
+                            <li>Your password can’t be a commonly used password.</li>
+                            <li>Your password can’t be entirely numeric.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{ form.password2.label_tag }}  {{ form.password2 }}</td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <br><br> 
+            
+            <button type="submit">Sign Up</button>
+            <p>Already have an account? Login <a href="{% url 'login' %}">here</a></p>
+        </form>
+    </div>
+
+
+</body>
+</html>
