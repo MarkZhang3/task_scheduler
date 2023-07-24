@@ -20,7 +20,7 @@ def index(request):
     content = {
         'year': yy,
         'month_numeric': mm,
-        "month": month, 
+        "month": month,
         "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
         "dates": dates,
     }
@@ -40,7 +40,7 @@ def get_previous(request, yy, mm):
     content = {
         'year': yy,
         'month_numeric': mm,
-        "month": month, 
+        "month": month,
         "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
         "dates": dates,
     }
@@ -60,7 +60,7 @@ def get_next(request, yy, mm):
     content = {
         'year': yy,
         'month_numeric': mm,
-        "month": month, 
+        "month": month,
         "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
         "dates": dates,
     }
@@ -78,7 +78,7 @@ def index_event_list(request, year, month, day):
     content = {
         'year': year,
         'month_numeric': month,
-        "month": month_string, 
+        "month": month_string,
         "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
         "dates": dates,
         'date': date,
@@ -191,8 +191,8 @@ def profile(request):
     for object in AppPassword.objects.all():
         if object.user is user:
             password = object.app_password
-            break 
-    
+            break
+
     content = {
         'username': user.username,
         'email': user.email,
@@ -201,17 +201,12 @@ def profile(request):
     return render(request, 'profile.html', content)
 
 
-def logout_view(request):
-    logout(request)
-    return redirect('login')
-
-
 def app_password(request):
     return render(request, 'app_password.html')
 
 
 def add_app_password(request):
-    user = request.user 
+    user = request.user
     password = request.POST['app_password']
     pw = AppPassword.objects.create(user=user, app_password=password)
     pw.save()
@@ -220,35 +215,35 @@ def add_app_password(request):
 
 def edit_username(request):
     if request.method == 'POST':
-        user = request.user 
+        user = request.user
         new_username = request.POST['new_username']
-        user.username = new_username 
+        user.username = new_username
         user.save()
         return redirect('profile')
     else:
-        return render('edit_username.html')
+        return render(request, 'edit_username.html')
 
 
 def edit_password(request):
     if request.method == 'POST':
-        user = request.user 
+        user = request.user
         new_password = request.POST['new_password']
         user.set_password(new_password)
         user.save()
         return redirect('profile')
     else:
-        return render('edit_password.html')
+        return render(request, 'edit_password.html')
 
 
 def edit_email(request):
     if request.method == 'POST':
-        user = request.user 
+        user = request.user
         new_email = request.POST['new_email']
-        user.email = new_email 
+        user.email = new_email
         user.save()
         return redirect('profile')
     else:
-        return render('edit_email.html')
+        return render(request, 'edit_email.html')
 
 
 def demo(request):

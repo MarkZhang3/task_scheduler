@@ -3,11 +3,15 @@
 
     <div class="main">
         <h1>{{ date }}</h1>
-        <ul>
-            {% for event in events %}
-                <li><a href='/event_details/{{ event.id }}'>{{ event }}</a></li>
-            {% endfor %}
-        </ul>
+        {% if events %}
+            <ul>
+                {% for event in events %}
+                    <li><a href='/event_details/{{ event.id }}'>{{ event }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No Events For {{ date }}</p>
+        {% endif %}
     </div>
 
 {% endblock content %}

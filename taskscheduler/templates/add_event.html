@@ -2,32 +2,31 @@
 {% block content %}
 
     <div class="main">
-        <h1>Add Event</h1>
-        <form action="/add_event/" method="post">
-            {% csrf_token %}
-            <label>Event Text: </label>
-            <input class="input_line" name="event_text" style="border-color: #000000; border-left: none;
-            border-right: none;
-            border-top: none;
-            background-color: transparent;">
-            <br><br>
-            <label for="start_date">Start Date:</label>
-            <input class="input_box" name="start_date" placeholder="ie. {{ cur_date }}">
-            <br><br>
-            <label for="start_time">Start Time: </label>
-            <input class="input_box" name="start_time" placeholder="ie. 12:00">
-            <br><br>
-            <label for="end_date">End Date:</label>
-            <input class="input_box" name="end_date" placeholder="ie. {{ cur_date }}">
-            <br><br>
-            <label for="end_time">End Time:</label>
-            <input class="input_box" name="end_time" placeholder="ie. 12:00">
-            <br><br>
-            <input type="submit" value="Submit" style="padding: 12px 20px;
-            background-color: #EF476F;
-            cursor: pointer;
-            border: none;">
-        </form>
+        <div class="form_wrapper">
+            <h1>Add Event</h1>
+            <form action="/add_event/" method="post">
+                {% csrf_token %}
+                <label>Event Text: </label>
+                <input class="input_box" name="event_text" >
+                <br><br>
+                <label for="start_date">Start Date:</label>
+                <input class="input_box" name="start_date" placeholder="ie. {{ cur_date }}">
+                <br><br>
+                <label for="start_time">Start Time: </label>
+                <input class="input_box" name="start_time" placeholder="ie. 12:00">
+                <br><br>
+                <label for="end_date">End Date:</label>
+                <input class="input_box" name="end_date" placeholder="ie. {{ cur_date }}">
+                <br><br>
+                <label for="end_time">End Time:</label>
+                <input class="input_box" name="end_time" placeholder="ie. 12:00">
+                <br><br>
+                <input type="submit" value="Submit" style="padding: 12px 20px;
+                background-color: #EF476F;
+                cursor: pointer;
+                border: none;">
+            </form>
+        </div>
     </div>
-    
+
 {% endblock content %}

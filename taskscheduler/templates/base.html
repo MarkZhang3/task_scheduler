@@ -4,11 +4,12 @@
 <head>
     <title>Task Scheduler</title>
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <nav>
-        <h3><a href="/" style="color: white">Task Scheduler</a></h3>
+        <h3><a href="/" style="color: white">Home</a></h3>
         <ul class="nav-items">
             <li><a href="/add_event/" style="color: white">Add Event</a></li>
             <li><a href="/admin/" style="color: white">Admin</a></li>
@@ -16,8 +17,8 @@
         </ul>
     </nav>
 
-    {% if messages %} 
-        {% for message in message %} 
+    {% if messages %}
+        {% for message in message %}
             {{ message }}
         {% endfor %}
     {% endif %}

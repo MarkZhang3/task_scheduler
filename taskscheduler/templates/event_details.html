@@ -2,24 +2,26 @@
 {% block content %}
 
     <div class="main">
-        <h1>Event Details</h1>
-        <label>Event Text: {{ event.text }}</label>
-        <br><br>
-        <label for="start_date">Start Date: {{ event.start_date }}</label>
-        <br><br>
-        <label for="start_time">Start Time: {{ event.start_time }}</label>
-        <br><br>
-        <label for="end_date">End Date: {{ event.end_date }}</label>
-        <br><br>
-        <label for="end_time">End Time: {{ event.end_time }}</label>
-        <br><br>
-        {% if event.completed %}
-            <a href="/update_completed/{{ event.id }}">mark as not completed</a>
-        {% else %} 
-            <a href="/update_completed/{{ event.id }}">mark as completed</a>
-        {% endif %} 
-        <br><br>
-        <a href="/edit_event/{{ event.id }}">Edit Event</a>
+        <div class="form_wrapper">
+            <h1>Event Details</h1>
+            <label>Event Text: {{ event.text }}</label>
+            <br><br>
+            <label for="start_date">Start Date: {{ event.start_date }}</label>
+            <br><br>
+            <label for="start_time">Start Time: {{ event.start_time }}</label>
+            <br><br>
+            <label for="end_date">End Date: {{ event.end_date }}</label>
+            <br><br>
+            <label for="end_time">End Time: {{ event.end_time }}</label>
+            <br><br>
+            {% if event.completed %}
+                <a href="/update_completed/{{ event.id }}">mark as not completed</a>
+            {% else %}
+                <a href="/update_completed/{{ event.id }}">mark as completed</a>
+            {% endif %}
+            <br><br>
+            <a href="/edit_event/{{ event.id }}">Edit Event</a>
+        </div>
     </div>
 
 {% endblock content %}
