@@ -2,8 +2,6 @@
 
 You can see it live [here](http://markzhang.pythonanywhere.com/login/?next=/)
 
-## Motivation
-I have a hard time keeping track of what I need to do day to day. Often I’ll think of things to do for my day in the morning but then forget everything I planned out by the afternoon. I wanted to make a simple website where I can keep track of tasks I want to get done and also send myself email reminders to actually complete the tasks. 
 
 ## Features
 Task scheduler has a Login/Logout and user authentication system. (There is a demo feature to use the app without needing to make a new user)  
